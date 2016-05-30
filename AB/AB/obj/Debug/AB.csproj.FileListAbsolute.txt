@@ -1,0 +1,10 @@
+D:\BSA\Test2\AB\AB\bin\Debug\AB.dll
+D:\BSA\Test2\AB\AB\bin\Debug\AB.pdb
+D:\BSA\Test2\AB\AB\obj\Debug\AB.csprojResolveAssemblyReference.cache
+D:\BSA\Test2\AB\AB\obj\Debug\AB.dll
+D:\BSA\Test2\AB\AB\obj\Debug\AB.pdb
+D:\BSA\Test3\AB\AB\bin\Debug\AB.dll
+D:\BSA\Test3\AB\AB\bin\Debug\AB.pdb
+D:\BSA\Test3\AB\AB\obj\Debug\AB.csprojResolveAssemblyReference.cache
+D:\BSA\Test3\AB\AB\obj\Debug\AB.dll
+D:\BSA\Test3\AB\AB\obj\Debug\AB.pdb
