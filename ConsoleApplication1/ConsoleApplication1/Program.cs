@@ -13,7 +13,7 @@ namespace ConsoleApplication1
         {
             AddressBook book = new AddressBook();
 
-            DateTime notifier = DateTime.Now.AddDays(-1);
+            DateTime notifier = DateTime.Now.AddDays(-1); // Notifier contains last date we sent email
 
             string answer;
 
@@ -99,25 +99,32 @@ namespace ConsoleApplication1
                         break;
                     case "8":
                         {
-                            IEnumerable<string> emails = book.Birthday();
-                            SmtpClient smtp = new SmtpClient();
-                            smtp.Host = "smtp.gmail.com";
-                            smtp.Port = 587;
-
-                            smtp.Credentials = new NetworkCredential(
-                                "username@domain.com", "password");
-                            smtp.EnableSsl = true;
-                            MailAddress from = new MailAddress("Mail from");
-
-                            foreach (string str in emails)
+                            if (notifier != DateTime.Now)
                             {
-                                MailAddress to = new MailAddress(str);
-                                MailMessage mail = new MailMessage(from, to);
-                                mail.Subject = "Birthday";
-                                mail.Body = "Happy Birthday!!!";
-                                smtp.Send(mail);
-                            }
+                                IEnumerable<string> emails = book.Birthday();
+                                SmtpClient smtp = new SmtpClient();
+                                smtp.Host = "smtp.gmail.com";
+                                smtp.Port = 587;
 
+                                smtp.Credentials = new NetworkCredential(
+                                    "username@domain.com", "password");
+                                smtp.EnableSsl = true;
+                                MailAddress from = new MailAddress("Mail from");
+
+                                foreach (string str in emails)
+                                {
+                                    MailAddress to = new MailAddress(str);
+                                    MailMessage mail = new MailMessage(from, to);
+                                    mail.Subject = "Birthday";
+                                    mail.Body = "Happy Birthday!!!";
+                                    smtp.Send(mail);
+                                }
+                                notifier = DateTime.Now;
+                            }
+                            else
+                            {
+                                Console.WriteLine("All greetings are sent.");
+                            }
                         }
                         break;
                     case "A":
